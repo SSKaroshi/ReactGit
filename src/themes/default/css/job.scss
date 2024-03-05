@@ -1,0 +1,91 @@
+.common-datepicker{
+    width: 100%;
+    margin-bottom: 8%;
+}
+
+.common-dropdown{
+    width: 100%;
+}
+
+
+.job-list-header {
+    text-align: center;
+    color: #000000;
+    height: 64px;
+    padding-inline: 48px;
+    line-height: 64px;
+    // background-color: #4096ff;
+    background: none !important;
+  }
+  
+  .job-list-content {
+    min-height: 120px;
+    line-height: 120px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 1%;
+    border-radius: 1%;
+  }
+  
+  .job-list-sider {
+    text-align: center;
+   // line-height: 120px;
+    margin-top: 6px;
+    color: #fff;
+    margin-left: 1%;
+    background: none !important;
+  }
+  
+
+  .job-list-box {
+    width: 100%;
+    height: 88px;
+    margin-bottom: 5px;
+    border: none !important;
+    //cursor: pointer;
+    color: black;
+    background: none;
+
+    &:hover, &.active {
+        background: rgba(225, 240, 255, 1);
+        border-radius: 2%;
+      }
+  }
+  
+  .job-list-layout {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: none;
+  }
+
+  .side-bar-typo-header{
+     
+    color: var(--Gray-500, var(--grey-500,rgba(71, 84, 103, 1)));
+    text-align: left;
+    font-family: Inter;
+    /* Display xs/Semibold */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 133.333% */
+    margin-bottom: 2%;
+
+
+  }
+
+  .side-bar-typo-label{
+
+    color: var(--grey-600,  rgba(102, 112, 133, 1));
+
+    /* Medium */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+      height: 25%;
+  }
+  

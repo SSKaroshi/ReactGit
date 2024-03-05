@@ -1,0 +1,51 @@
+@import './_variables';
+
+.layout{
+    min-height: 100vh;
+    .layout-header{
+        height: auto;
+        padding: 0;
+    }
+}
+  
+.create-job-actionbar{
+  display: flex;
+  align-items: center;
+  .job-count{
+    margin-left: 15px;
+    color: $blue;
+  }
+}
+
+.actionbar-header{
+  background: $white;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-detail-btn,
+.work-flow-btn {
+  border: 1px solid $gray-600;
+  font-weight: 630;
+}
+
+.job-detail-btn.active,
+.work-flow-btn.active {
+  border-color: $blue;
+  color: $blue;
+}
+
+.job-detail-btn {
+  border-radius: 0px 20px 20px 0px;
+}
+
+.work-flow-btn {
+  border-radius: 20px 0px 0px 20px;
+}
+
+.btn-actionbar{
+  margin-left: 15px;
+  color: $blue;
+}

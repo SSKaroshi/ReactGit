@@ -1,0 +1,157 @@
+@import './_variables';
+
+ 
+.w-5 {
+  width: 5%;
+}
+.w-10 {
+  width: 10%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-15 {
+  width: 15%;
+}
+.w-25 {
+  width: 25%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+width: 60%;
+}
+.w-70 {
+width: 70%;
+}
+.w-65 {
+width: 65%;
+}
+.w-80 {
+width: 80%;
+}
+.w-90 {
+width: 90%;
+}
+.w-100 {
+width: 100%;
+}
+.w-auto {
+width: auto;
+}
+.h-250 {
+  height: 250px;
+}
+.h-100{
+  height: 100%;
+}
+.ant-Layout{
+background: $white;
+}
+.mr-10{
+  margin-right: 10px;
+}
+
+.error-message {
+  color: $red;
+  margin-top: 5px;
+}
+.start-date-range {
+  margin-right: 20px;
+  min-width: 250px;
+}
+.button{
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  padding: 10px 12px;
+  background: var(--Brand-Color-600, $blue);
+}
+
+.input-type{
+  width: 320px;
+  height: 30px;
+  border-radius: 4px;
+  padding: 11px 12px;
+}
+
+.dropdown{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 4px;
+  background: var(--White, $white);
+}
+.auto-complete{
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-icon {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+
+// font size, color  
+.Typo-header{
+  color: var(--Gray-500, var(--grey-500, #667085));
+  text-align: left;
+
+  /* Display xs/Semibold */
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+  margin-bottom: 2%;
+
+}
+
+
+// font size, color  
+.Typo-label{
+  color: var(--grey-600, #475467);
+
+
+
+/* Medium */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  height: 25%;
+}
+
+.common-datepicker{
+  width: 100%;
+  margin-bottom: 8%;
+}
+
+.common-dropdown{
+  width: 100%;
+}
+
+.common-textarea{
+  width: 100%;
+  height: 70%;
+}
+
+.common-textarea-layout{
+  
+  margin-bottom: 8%;
+}
+
+
+
+//// extra 
+.ant-image{
+  width: 130px;
+}
