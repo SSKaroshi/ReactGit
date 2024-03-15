@@ -19,7 +19,7 @@ const LoginView: React.FC = () => {
   const location = useLocation();
   const [form] = Form.useForm();
   const intl = useIntl();
-  // const [errorMessage, setErrorMessage] = useState("");
+   const [errorMessage, setErrorMessage] = useState("");
   const dispatch = useAppDispatch();
   const loading = useSelector((state: any) => state.login.loading);
   const [formData, setFormData] = useState({ username: "", password: "" });
