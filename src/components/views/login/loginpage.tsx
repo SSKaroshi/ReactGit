@@ -46,18 +46,18 @@ const LoginPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (location.state && location.state.passwordFlag) {
-      setShowSuccessMessage(true);
-    }
+  // useEffect(() => {
+  //   if (location.state && location.state.passwordFlag) {
+  //     setShowSuccessMessage(true);
+  //   }
 
-    const timeoutId = setTimeout(() => {
-      setShowSuccessMessage(false);
-      navigate(location.pathname, { ...location.state, passwordFlag: false });
-    }, 1800);
+  //   const timeoutId = setTimeout(() => {
+  //     setShowSuccessMessage(false);
+  //     navigate(location.pathname, { ...location.state, passwordFlag: false });
+  //   }, 1800);
 
-    return () => clearTimeout(timeoutId);
-  }, [location.state, location.pathname]);
+  //   return () => clearTimeout(timeoutId);
+  // }, [location.state, location.pathname]);
 
   return (
     <Layout className="login-form">
