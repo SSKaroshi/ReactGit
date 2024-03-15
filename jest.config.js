@@ -6,8 +6,7 @@ module.exports = {
     moduleDirectories: ["node_modules", "src"],
     testMatch: ["<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}", "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"],
     transform: {
-        '^.+\\.(t|j)sx?$': 'ts-jest',
-        '^.+\\.jsx?$': 'babel-jest'
+        '^.+\\.tsx?$': 'ts-jest',
     },
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
     moduleNameMapper: {
@@ -15,5 +14,9 @@ module.exports = {
         "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/fileMock.js"
     },
     setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
-    setupFiles: ["./setupJest.js"]
+    setupFiles: ["./setupJest.js"],
+    // Add additional configuration for ES module handling
+    transformIgnorePatterns: [
+        "node_modules/(?!(axios)/)"
+    ]
 };
