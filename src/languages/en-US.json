@@ -1,26 +1,48 @@
 {
     "label":{
-        "login":"Log In",
+        "login":"Log in",
         "email":"Email",
         "password":"Password",
-        "passwordChangeSuccess":"Password changed successfully"
+        "passwordChangeSuccess":"Password changed successfully",
+        "new-password":"New Password",
+        "re-password": "Re-enter New Password",
+        "create-password":"Create Password",
+        "reset-password":"Reset your Password",
+        "inbox":"check your inbox"
+        
     },
     "button":{
-        "signIn":"Sign In"
+        "signIn":"Sign In",
+        "update":"Update"
     },
     "link":{
-        "forgotPassword":"Forgot Password?"
+        "forgotPassword":"Forgot Password",
+        "return":"Return",
+        "signIn":"Sign In"
     },
     "placeholder":{
         "email":"Enter your email ID",
         "password":"Enter Password"
     },
     "validation":{
-        "enterEmail":"Please enter email",
-        "enterPassword":"Please enter password",
-        "enterRegisteredEmail":"Please enter a valid email",
+        "enterEmail":"Please enter your email address",
+        "enterPassword":"Please enter your password",
+        "enterRegisteredEmail":"Please enter a valid email address",
         "enterCorrectPassword":"Please enter a valid password",
-        "enterValidFormat":"Invalid login credentials",
-        "enterCorrectCredentials":"Email or password is incorrect"
+
+        "enterValidFormat":"Please enter a valid email address.",
+        "enterCorrectCredentials":"Email or password is incorrect",
+
+        "alphanumric":"Please Enter a valid {alphanumric}",
+        "enterNumric":"Please Enter Numeric Value",
+        "enterField":"Please Enter {enterField}",
+
+        "enterNewPassword":"Please enter new password",
+        "re-enterPassword":"Please re-enter password",
+        "passwordMatch":"Password does not match the criteria"
+    },
+    "note":{
+        "create-password-note":"Your password must be at least 8 characters long and include a combination of uppercase letters, lowercase letters, numbers, and special characters (e.g., @, #, $,%)"
     }
 }
+

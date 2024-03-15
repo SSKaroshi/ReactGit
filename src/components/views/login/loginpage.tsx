@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Layout, Card, Row, Col, Typography, Form, Image, Alert } from "antd";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
-import { useSelector } from "react-redux";
 import CommonButton from "../../common/button";
 import CommonInput from "../../common/input";
 import logo from "../../../assets/xseedLogo.png";
-import { login, setLoading } from "../../../store/slices/login/login";
-import "../../../themes/default/css/global.scss";
-import "../../../themes/default/css/login.scss";
-import { useAppDispatch } from "../../../hooks/useTypeSelector";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { Content } from "antd/es/layout/layout";
 
-const { Content } = Layout;
-const { Item } = Form;
-
-const LoginView: React.FC = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [form] = Form.useForm();
   const intl = useIntl();
   const [errorMessage, setErrorMessage] = useState("");
-  const dispatch = useAppDispatch();
-  const loading = useSelector((state: any) => state.login.loading);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
@@ -30,30 +24,25 @@ const LoginView: React.FC = () => {
   };
 
   const handleLogin = async () => {
-    dispatch(setLoading(true));
+    setLoading(true);
     try {
-      await dispatch(login(formData)).unwrap();
+      const response = await axios.post(
+        "http://localhost:9898/auth/login",
+        formData
+      );
+      console.log(response.data);
+      const accessToken = response.data;
+      Cookies.set("accessToken", accessToken); // Set the access token in a cookie for 1 day , { expires: 1 }
+      //sessionStorage.setItem("accessToken", accessToken); // Store the access token in session storage
       navigate("/dashboard");
     } catch (error: any) {
       if (error.response && error.response.status === 403) {
-        setErrorMessage("Invalid email syntax");
-        form.setFields([
-          {
-            name: "username",
-            errors: ["Invalid email db "],
-          },
-        ]);
+        setErrorMessage("User not found or incorrect password.");
       } else {
-        setErrorMessage("Invalid password syntax");      
-        form.setFields([
-          {
-            name: "password",
-            errors: ["Invalid password db"],
-          },
-        ]);
+        setErrorMessage("User not found or incorrect password.");
       }
     } finally {
-      dispatch(setLoading(false));
+      setLoading(false);
     }
   };
 
@@ -74,14 +63,12 @@ const LoginView: React.FC = () => {
     <Layout className="login-form">
       <Card className="login-container">
         <Row>
-          <Content className="login-header">
-            <Image src={logo} alt="XSeed Logo" />
-            <Typography className="typography-title">
-              {intl.formatMessage({
-                id: "label.login",
-                defaultMessage: "Log In",
-              })}
-            </Typography>
+        <Content className="login-header">
+            <Image src={logo} alt="XSeed Logo" />            
+            <Typography className="typography-title">{intl.formatMessage({ id: "label.login",
+             defaultMessage: "Log In",
+           })}</Typography>
+           
           </Content>
           <Form
             form={form}
@@ -108,18 +95,19 @@ const LoginView: React.FC = () => {
                 rules={[
                   {
                     required: true,
-                    message: intl.formatMessage({ id: "validation.enterEmail" ,
-                    defaultMessage: "Default msg", }),
+                    message: intl.formatMessage({
+                      id: "validation.enterEmail",
+                      defaultMessage: "Default msg",
+                    }),
                   },
                   {
                     pattern:
                       /^(?=.{1,50}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                   // /^(?=.{1,50}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?=\.[a-zA-Z]{2,4}$)/,
-                    message: intl.formatMessage({ id: "validation.enterRegisteredEmail" ,
-                    defaultMessage: "Default msg", }),
-                    
+                    message: intl.formatMessage({
+                      id: "validation.enterRegisteredEmail",
+                      defaultMessage: "Default msg",
+                    }),
                   },
-                  
                 ]}
                 lg={24}
                 md={24}
@@ -144,28 +132,30 @@ const LoginView: React.FC = () => {
                 rules={[
                   {
                     required: true,
-                    message: intl.formatMessage({ id: "validation.enterPassword" ,
-                    defaultMessage: "Default msg", }),
+                    message: intl.formatMessage({
+                      id: "validation.enterPassword",
+                      defaultMessage: "Default msg",
+                    }),
                   },
                   {
                     pattern:
                       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/,
-                    message: intl.formatMessage({ id: "validation.enterCorrectPassword" ,
-                    defaultMessage: "Default msg", }),
-                    
+                    message: intl.formatMessage({
+                      id: "validation.enterCorrectPassword",
+                      defaultMessage: "Default msg",
+                    }),
                   },
-                 
                 ]}
                 lg={24}
                 md={24}
                 sm={24}
                 xs={24}
               />
-              <Item>
+              <Form.Item>
                 <Typography className="Typo-label link">
                   <Link to={"/forgot-password"}>Forgot password?</Link>
                 </Typography>
-              </Item>
+              </Form.Item>
 
               <CommonButton
                 className="btn-text-center "
@@ -187,15 +177,8 @@ const LoginView: React.FC = () => {
           </Form>
         </Row>
       </Card>
-    </Layout>
-  );
-};
 
-export default LoginView;
-
-/*
-
-{showSuccessMessage && (
+      {showSuccessMessage && (
         <Alert
           message="Password changed successfully!"
           type="success"
@@ -204,46 +187,68 @@ export default LoginView;
         />
       )}
 
+      {errorMessage && (
+        <Alert
+          message={errorMessage}
+          type="error"
+          showIcon
+          className="alertMessage"
+        />
+      )}
+    </Layout>
+  );
+};
+
+export default LoginPage;
+
+/*
+
+import React, { useEffect, useState } from "react";
+import Cookies from 'js-cookie';
+
+const Dashboard = () => {
+    const [accessToken, setAccessToken] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Check session storage first
+        const sessionAccessToken = sessionStorage.getItem("accessToken");
+        if (sessionAccessToken) {
+            setAccessToken(sessionAccessToken);
+        } else {
+            // If not in session storage, check cookies
+            const cookieAccessToken = Cookies.get("accessToken");
+            if (cookieAccessToken) {
+                setAccessToken(cookieAccessToken);
+            }
+        }
+    }, []);
+
+    return (
+        <div>
+            <h3>Welcome to Dashboard!</h3>
+            {accessToken && <p>Access Token: {accessToken}</p>}
+        </div>
+    );
+}
+
+export default Dashboard;
 
 
 
 
-      // {
-                  //   type: "email",
-                  //   message: intl.formatMessage({
-                  //     id: "validation.enterValidFormat",
-                  //     defaultMessage: "Please enter a valid email address.",
-                  //   }),
-                  // },
-                  // {
-                  //   validator: (_: any, value: any) => {
-                  //     if (errorMessage === "Invalid email or password") {
-                  //       return Promise.reject("Invalid email or password");
-                  //     }
-                  //     return Promise.resolve();
-                  //   },
-                  // },
 
 
 
 
-                   // {
-                  //   type: "password",
-                  //   message: intl.formatMessage({
-                  //     id: "validation.enterCorrectCredentials",
-                  //     defaultMessage: "Please enter a valid email address.",
-                  //   }),
-                  // },
-                  // {
-                  //   validator: (_: any, value: any) => {
-                  //     if (errorMessage === "Invalid email or password") {
-                  //       return Promise.reject("Invalid email or password");
-                  //     }
-                  //     return Promise.resolve();
-                  //   },
-                  // },
 
 
+import React from "react";
 
+const Dashboard = ()=>{
+    return(
+        <h3>Welcome to Dashboard!</h3>
+    );
+}
 
+export default Dashboard
 */

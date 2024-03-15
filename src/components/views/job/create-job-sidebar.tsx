@@ -2,33 +2,29 @@ import React from 'react';
 import CommonSidebarButton from '../../common/sidebar-common-button';
 import '../../../themes/default/css/job.scss';
 import '../../../themes/default/css/global.scss';
+import { useAppDispatch, useAppSelector } from '../../../hooks/useTypeSelector';
+import { RootState } from '../../../store/store';
+import { setActiveComponent } from '../../../store/slices/job/job-creation';
 
-interface JobListSidebarProps {
-  activeComponent: string;
-  setActiveComponent: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const CreateJobSidebar: React.FC<JobListSidebarProps> = ({ activeComponent, setActiveComponent }) => {
+const CreateJobSidebar: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const activeComponent = useAppSelector((state: RootState) => state.createJob.activeComponent);
   return (
     <div className='job-list-sider'>
-
-      <CommonSidebarButton lg={24}
+      <CommonSidebarButton md={8} sm={12} xs={24} lg={24}
         className={`job-list-box ${activeComponent === 'JobDetails' ? 'active' : ''}`}
-        onClick={() => setActiveComponent('JobDetails')}
-        label='Job Details' subLabel='Update your job details'
-      />
+        onClick={() => dispatch(setActiveComponent('JobDetails'))}
+        label='Job Details' subLabel='Update your job details'  />
 
-      <CommonSidebarButton lg={24}
+      <CommonSidebarButton  lg={24} md={8} sm={12} xs={24}
         className={`job-list-box ${activeComponent === 'HiringWorkflow' ? 'active' : ''}`}
-        onClick={() => setActiveComponent('HiringWorkflow')}
-        label='Hiring workflow' subLabel='Choose your preferred workflow with this job'
-      />
+        onClick={() => dispatch(setActiveComponent('HiringWorkflow'))}
+        label='Hiring workflow' subLabel='Choose your preferred workflow with this job'  />
 
-      <CommonSidebarButton lg={24}
+      <CommonSidebarButton lg={24} md={8} sm={12} xs={24}
         className={`job-list-box ${activeComponent === 'AttractCandidates' ? 'active' : ''}`}
-        onClick={() => setActiveComponent('AttractCandidates')}
-        label='Attract candidates' subLabel='Share job and attract applicants'
-      />
+        onClick={() => dispatch(setActiveComponent('AttractCandidates'))}
+        label='Attract candidates' subLabel='Share job and attract applicants'  />
     </div>
   );
 };

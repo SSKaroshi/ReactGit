@@ -1,10 +1,20 @@
-import { configureStore } from "@reduxjs/toolkit";
-import authReducer from './slices/authSlice';
+
+import { configureStore} from '@reduxjs/toolkit';
+import commonReducer from './slices/common/common';
+import createJobReducer from './slices/job/job-creation';
+import loginReducer from './slices/login/login';
+
 
 const store = configureStore({
   reducer: {
-    auth: authReducer,
+    createJob: createJobReducer,
+    common: commonReducer,
+  
+    login: loginReducer,
+ 
+
   },
+
 });
 
 export type RootState = ReturnType<typeof store.getState>;

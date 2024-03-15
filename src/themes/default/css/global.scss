@@ -1,6 +1,6 @@
 @import './_variables';
 
- 
+
 .w-5 {
   width: 5%;
 }
@@ -69,7 +69,7 @@ background: $white;
   height: 40px;
   border-radius: 4px;
   padding: 10px 12px;
-  background: var(--Brand-Color-600, $blue);
+  // background: var(--Brand-Color-600, $blue);
 }
 
 .input-type{
@@ -78,7 +78,6 @@ background: $white;
   border-radius: 4px;
   padding: 11px 12px;
 }
-
 .dropdown{
   display: flex;
   justify-content: space-between;
@@ -99,7 +98,6 @@ background: $white;
 }
 
 
-// font size, color  
 .Typo-header{
   color: var(--Gray-500, var(--grey-500, #667085));
   text-align: left;
@@ -111,15 +109,10 @@ background: $white;
   font-weight: 600;
   line-height: 32px; /* 133.333% */
   margin-bottom: 2%;
-
 }
 
-
-// font size, color  
 .Typo-label{
   color: var(--grey-600, #475467);
-
-
 
 /* Medium */
   font-family: Inter;
@@ -147,11 +140,4 @@ background: $white;
 .common-textarea-layout{
   
   margin-bottom: 8%;
-}
-
-
-
-//// extra 
-.ant-image{
-  width: 130px;
 }

@@ -34,28 +34,13 @@ const NavigationBar: React.FC = () => {
   return (
     <Layout style={{background:'#001529'}}>
       <Space className='navbar-container'>
-        <Menu className='navbar-menu' theme='dark' mode="horizontal" defaultSelectedKeys={['1']} selectedKeys={[activeKey]} onClick={handleMenuClick}>
+        <Menu theme='dark' mode="horizontal" defaultSelectedKeys={['1']} onClick={handleMenuClick}>
         <img src={xseed} alt="Logo" className="navbar-logo" />
-          {/* <Menu.Item key="1">Dashboard</Menu.Item>
+          <Menu.Item key="1">Dashboard</Menu.Item>
           <Menu.Item key="2">Jobs</Menu.Item>
           <Menu.Item key="3">Candidates</Menu.Item>
           <Menu.Item key="4">Source</Menu.Item>
-          <Menu.Item key="5">Reports</Menu.Item> */}
-          <Menu.Item key="1" className={activeKey === '1' ? 'active-menu-item' : undefined}>
-            Dashboard
-          </Menu.Item>
-          <Menu.Item key="2" className={activeKey === '2' ? 'active-menu-item' : undefined}>
-            Jobs
-          </Menu.Item>
-          <Menu.Item key="3" style={activeKey === '3' ? { backgroundColor: 'yellow' } : undefined}>
-            Candidates
-          </Menu.Item>
-          <Menu.Item key="4" style={activeKey === '4' ? { backgroundColor: 'yellow' } : undefined}>
-            Source
-          </Menu.Item>
-          <Menu.Item key="5" style={activeKey === '5' ? { backgroundColor: 'yellow' } : undefined}>
-            Reports
-          </Menu.Item>
+          <Menu.Item key="5">Reports</Menu.Item>
         </Menu>
         <Space className='navbar-icon'>
           <Avatar icon={<BellOutlined />} />

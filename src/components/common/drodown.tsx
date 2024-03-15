@@ -67,9 +67,15 @@ interface DropdownProps {
   placeholder?: string;
   lg:number;
   label?:string;
+  name?: string;
+  rules?: any[];
+  md:number;
+  sm:number;
+  xs:number;
 }
+  
 
-const CommonDropdown: React.FC<DropdownProps> = ({ options, value, onChange, mode, placeholder,lg,label }) => {
+const CommonDropdown: React.FC<DropdownProps> = ({ options, value, onChange, mode, placeholder,lg,md,sm,xs,label,name,rules }) => {
   const handleChange = (selectedValue: SelectValue) => {
     if (selectedValue === undefined) return;
 
@@ -82,9 +88,9 @@ const CommonDropdown: React.FC<DropdownProps> = ({ options, value, onChange, mod
 
   return (
 
-    <Col className="gutter-row" xs={24} sm={12} md={8} lg={lg}>
+    <Col className="gutter-row" xs={xs} sm={sm} md={md} lg={lg}>
       <Typography className='Typo-label'>{label}</Typography>
-      <Form.Item>
+      <Form.Item name={name} rules={rules}>
         <Select
           id={label}
           className='common-dropdown'

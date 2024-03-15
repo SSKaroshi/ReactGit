@@ -14,13 +14,16 @@
   .user-profile-icon{
     cursor: pointer;
   }
-  .custom-menu .active-menu-item {
-    border-bottom: 2px solid blue;
+  .ant-menu-item-selected
+  {
+    background: linear-gradient(180deg, rgba(24, 58, 88, 0) 0%, #183A58 100%) !important;
+    border-bottom: 2px solid rgba(11, 130, 241, 1)
+
   }
-  @media screen and (max-width: 450px) {
-    .navbar-menu {
-     display: flex;
-     flex-direction: column;
-    }
-  }
+  // @media screen and (max-width: 450px) {
+  //   .navbar-menu {
+  //    display: flex;
+  //    flex-direction: column;
+  //   }
+  // }
   

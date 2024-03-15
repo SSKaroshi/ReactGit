@@ -2,14 +2,14 @@ import React from 'react';
 import CommonLayout from './layout';
 import NavigationBar from '../navbar/navbar';
 import ActionBar from './header';
-import FooterBar from './footer';
-import JobListDashboardBusinessLogic from '../../../pages/job/job-creation';
+import JobListDashboard from '../job/job-details';
+
 
 
 const MyPage: React.FC = () => (
   <CommonLayout
     headerComponents={[<NavigationBar key="navbar" />, <ActionBar key="actionbar" />,]}
-    contentComponents={[<JobListDashboardBusinessLogic key='job-create'/>]}
+    contentComponents={[<JobListDashboard key='job-create'/>]}
     footerComponent={[]}
   />
 );

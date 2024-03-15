@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Col, Form, Input, Typography } from 'antd';
 import { InputProps } from 'antd/lib/input';
@@ -10,19 +9,15 @@ interface InputFieldProps extends InputProps {
   rules?: any[];
   type?: 'text' | 'password' | 'email' | 'number';
   placeholder: string;
-  lg: number ;
-  // lg?: number ;
+  lg: number;
+  md:number;
+  sm:number;
+  xs:number;
 }
 
-const CommonInput: React.FC<InputFieldProps> = ({ lg, label, name, rules, type, placeholder, ...inputProps }) => {
-  // console.log(lg);
-  // lg=24;
-  // md=24;
-  // sm=12;
-  // xs=24;
+const CommonInput: React.FC<InputFieldProps> = ({ lg,md,sm,xs, label, name, rules, type, placeholder, ...inputProps }) => {
   return (
-
-    <Col className="gutter-row" xs={24} sm={12} md={8} lg={lg}>
+    <Col className="gutter-row" xs={xs} sm={sm} md={md} lg={lg}>
       <Typography className='Typo-label'>{label}</Typography>
       <Form.Item name={name} rules={rules}>
         <Input id={label} type={type} placeholder={placeholder} {...inputProps} />
@@ -32,4 +27,3 @@ const CommonInput: React.FC<InputFieldProps> = ({ lg, label, name, rules, type, 
 };
 
 export default CommonInput;
-

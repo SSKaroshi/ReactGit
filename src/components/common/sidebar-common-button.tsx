@@ -12,14 +12,17 @@ interface SidebarButtonProps extends ButtonProps {
     onClick?: () => void;
     className?: string;
     lg: number;
+    md:number;
+    sm:number;
+    xs:number;
 }
 
 
 
-const CommonSidebarButton: React.FC<SidebarButtonProps> = ({ label,subLabel, isSubmit, type, onClick, className, lg, ...ButtonProps }) => {
+const CommonSidebarButton: React.FC<SidebarButtonProps> = ({ label,subLabel, isSubmit, type, onClick, className, lg,sm,md,xs, ...ButtonProps }) => {
 
     return (
-        <Col className="gutter-row" xs={24} sm={12} md={8} lg={lg}>
+        <Col className="gutter-row" xs={xs} sm={sm} md={md} lg={lg}>
             <Button id={label} type={type}  onClick={onClick} className={`${className}`} {...ButtonProps}>
                 <Row>
                     <Col>

@@ -1,28 +1,39 @@
 import React from 'react';
 
-import {  Layout, Typography } from 'antd';
+import {  Layout} from 'antd';
 import '../../../themes/default/css/job.scss';
 import '../../../themes/default/css/global.scss';
 import CreateJobSidebar from './create-job-sidebar';
+import { useAppSelector } from '../../../hooks/useTypeSelector';
+import { RootState } from '../../../store/store';
+import JobListView from './create-job';
 
-interface JobListDashboardProps{
-    renderActiveComponent: () => React.ReactNode;
-    activeComponent: string;
-    setActiveComponent: React.Dispatch<React.SetStateAction<string>>;
-}
+const {Sider, Content } = Layout;
 
-const { Header, Sider, Content } = Layout;
+const JobListDashboard: React.FC = () => {
 
-const JobListDashboard: React.FC<JobListDashboardProps> = ({renderActiveComponent,activeComponent,setActiveComponent}) => {
+    const activeComponent = useAppSelector((state: RootState) => state.createJob.activeComponent);
 
-    
+    const renderActiveComponent = () => {
+        switch (activeComponent) {
+            case 'JobDetails':
+                return <JobListView />;
+            case 'HiringWorkflow':
+                // return <HiringWorkflow />
+                return <div>Attract Candidate</div>;
+            case 'AttractCandidates':
+                return <div>Attract Candidate</div>;
+            default:
+                return null;
+        }
+    };    
 
     return (
         <>
             <Layout className='job-list-layout' >
                 <Layout>
                     <Sider width="21%" className='job-list-sider'>
-                        <CreateJobSidebar activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
+                        <CreateJobSidebar />
                     </Sider>
                     <Content className='job-list-content'>
                         {renderActiveComponent()}
