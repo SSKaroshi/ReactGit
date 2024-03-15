@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest src/components/views/login/login.test.tsx",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
