@@ -6,7 +6,7 @@ module.exports = {
     moduleDirectories: ["node_modules", "src"],
     testMatch: ["<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}", "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"],
     transform: {
-        '^.+\\.tsx?$': 'ts-jest',
+        '^.+\\.(t|j)sx?$': 'babel-jest'
     },
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
     moduleNameMapper: {
@@ -15,7 +15,6 @@ module.exports = {
     },
     setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
     setupFiles: ["./setupJest.js"],
-    // Add additional configuration for ES module handling
     transformIgnorePatterns: [
         "node_modules/(?!(axios)/)"
     ]
