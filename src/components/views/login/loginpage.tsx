@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Layout, Card, Row, Col, Typography, Form, Image, Alert } from "antd";
+import { Layout, Card, Row, Col, Typography, Form, Image } from "antd";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 import CommonButton from "../../common/button";
