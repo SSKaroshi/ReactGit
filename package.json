@@ -35,7 +35,7 @@
   },
   
   "jest": {
-    "testMatch": ["C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\xseed_frontend_poc\\src\\components\\views\\login\\login.test.tsx"]
+    "testMatch": ["C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ReactDemo\\src\\components\\views\\loginlogin.test.tsx"]
   },
   "eslintConfig": {
     "extends": [
