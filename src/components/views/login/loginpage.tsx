@@ -178,7 +178,7 @@ const LoginPage = () => {
         </Row>
       </Card>
 
-      {showSuccessMessage && (
+{/*       {showSuccessMessage && (
         <Alert
           message="Password changed successfully!"
           type="success"
@@ -194,7 +194,7 @@ const LoginPage = () => {
           showIcon
           className="alertMessage"
         />
-      )}
+      )} */}
     </Layout>
   );
 };
