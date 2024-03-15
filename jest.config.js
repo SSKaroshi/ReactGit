@@ -6,7 +6,9 @@ module.exports = {
     moduleDirectories: ["node_modules", "src"],
     testMatch: ["<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}", "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"],
     transform: {
-        '^.+\\.(t|j)sx?$': ['@swc/jest']
+        // '^.+\\.(t|j)sx?$': ['@swc/jest']
+             '^.+\\.tsx?$': 'ts-jest',
+             '^.+\\.jsx?$': 'babel-jest'
       },
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
     moduleNameMapper: {
